@@ -303,6 +303,101 @@
         display: none !important
       }
     }
+
+    /* ---- Dark mode ------------------------------------------------------
+       markmap 的 autoloader 會在系統為深色時對 <html> 加上 .markmap-dark，
+       原本只改了節點文字色（#eee）卻沒改 body 底色，導致白底白字。
+       這裡把整套主題變數與寫死的淺色值一併補齊。 */
+    .markmap-dark {
+      color-scheme: dark;
+      --ink: #e4e4e7;
+      --muted: #a1a1aa;
+      --line: #3f3f46;
+      --bg: #17171a;
+      --chip: #27272a;
+    }
+
+    .markmap-dark header.st-head {
+      background: #1e1e22;
+    }
+
+    .markmap-dark .st-title .accent {
+      color: #2dd4bf;
+    }
+
+    .markmap-dark .st-title .accent2 {
+      color: #60a5fa;
+    }
+
+    .markmap-dark .st-legend span {
+      background: var(--chip);
+      color: #d4d4d8;
+    }
+
+    .markmap-dark .st-actions button {
+      background: #27272a;
+      color: #d4d4d8;
+    }
+
+    .markmap-dark .st-actions button:hover {
+      background: #3f3f46;
+    }
+
+    .markmap-dark #st-lang {
+      background: transparent;
+      border-color: #2dd4bf;
+      color: #2dd4bf;
+    }
+
+    .markmap-dark #st-lang:hover {
+      background: #2dd4bf;
+      color: #17171a;
+    }
+
+    .markmap-dark .markmap-foreign code {
+      background: #27272a;
+      color: #e4e4e7;
+    }
+
+    .markmap-dark .markmap-foreign a {
+      color: #60a5fa;
+      border-bottom-color: rgba(96, 165, 250, .35);
+    }
+
+    .markmap-dark .markmap-foreign a:hover {
+      border-bottom-color: #60a5fa;
+    }
+
+    /* 列印／輸出 PDF 一律用淺色，避免整頁黑底 */
+    @media print {
+      .markmap-dark {
+        color-scheme: light;
+        --ink: #0f172a;
+        --muted: #64748b;
+        --line: #e2e8f0;
+        --bg: #ffffff;
+        --chip: #f1f5f9;
+        background: #fff !important;
+      }
+
+      .markmap-dark .markmap {
+        --markmap-text-color: #333;
+        --markmap-circle-open-bg: #fff;
+      }
+
+      .markmap-dark header.st-head {
+        background: #fff;
+      }
+
+      .markmap-dark .st-title .accent {
+        color: #0d9488;
+      }
+
+      .markmap-dark .st-title .accent2 {
+        color: #2563eb;
+      }
+    }
+
   </style>
 </head>
 
